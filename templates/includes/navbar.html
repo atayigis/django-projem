@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      
+      nav{
+        background-color: #d9534f;
+      }
+    
+      nav a{
+        border: 1px solid transparent;
+      }
+
+      nav a:hover{
+        border-bottom: 1px solid white;
+      }
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+  <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <i class="fas fa-gamepad fa-2x" style="color: #fff; margin-right: 10px;"></i>
+    <a class="navbar-brand" href="{% url 'index'  %}">AtaYigis</a>
+    
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'about'  %}">Hakkımızda</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'article:articles'  %}">Makaleler</a>
+        </li>
+        
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+      {% if request.user.is_authenticated %}
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'article:dashboard'  %}">Kontrol Paneli</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'user:logout'  %}">Çıkış Yap</a>
+      </li>
+      {% else %}
+
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'user:login'  %}">Giriş Yap</a>
+      </li>
+      {% endif %}
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'user:register'  %}">Kayıt Ol</a>
+      </li>
+      
+      </ul>
+    </div>
+
+
+</nav>
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #dc3545;">
+        <a class="navbar-brand" href="{% url 'index' %}">AtaYigis</a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="navbar-collapse collapse" id="navbarColor01" style>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'about' %}">Hakkımızda <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'article:articles' %}">Makaleler</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            {% if request.user.is_authenticated %}
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'article:dashboard'  %}">Kontrol Paneli</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'user:logout'  %}">Çıkış Yap</a>
+            </li>
+            {% else %}
+  
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'user:login'  %}">Giriş Yap</a>
+            </li>
+            {% endif %}
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'user:register'  %}">Kayıt Ol</a>
+            </li>
+            
+            </ul>
+        </div>
+      </nav>  -->
+</body>
+</html>
